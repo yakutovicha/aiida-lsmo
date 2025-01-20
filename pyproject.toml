@@ -30,8 +30,8 @@ dependencies = [
     "ruamel.yaml~=0.16.5",
     "ase<3.20",
     "oximachinerunner~=1.4.0",
-    "pymatgen<2021",
-    "phonopy~=2.9",
+    "pymatgen>=2022.1.20",
+    "phonopy~=2.25.0",
     "markupsafe<2.1",
 ]
 
@@ -58,10 +58,12 @@ docs = [
 "lsmo.calc_h2_working_cap" = "aiida_lsmo.calcfunctions:calc_h2_working_cap"
 "lsmo.calc_o2_working_cap" = "aiida_lsmo.calcfunctions:calc_o2_working_cap"
 "lsmo.calc_selectivity" = "aiida_lsmo.calcfunctions:calc_selectivity"
+"lsmo.vac_vaccum" = "aiida_lsmo.calcfunctions:VACCalculation"
 
 [project.entry-points."aiida.parsers"]
 "lsmo.cp2k_bsse_parser" = "aiida_lsmo.parsers:Cp2kBsseParser"
 "lsmo.cp2k_advanced_parser" = "aiida_lsmo.parsers:Cp2kAdvancedParser"
+"lsmo.vac_vaccum_parser" = "aiida_lsmo.parsers:VACCalculationParser"
 
 [project.entry-points."aiida.workflows"]
 "lsmo.binding_site" = "aiida_lsmo.workchains:BindingSiteWorkChain"
@@ -80,6 +82,7 @@ docs = [
 "lsmo.isotherm_inflection" = "aiida_lsmo.workchains:IsothermInflectionWorkChain"
 "lsmo.cp2k_phonopy" = "aiida_lsmo.workchains:Cp2kPhonopyWorkChain"
 "lsmo.isotherm_accurate" = "aiida_lsmo.workchains:IsothermAccurateWorkChain"
+"lsmo.cp2k_mobility" = "aiida_lsmo.workchains.cp2k_mobility:Cp2kMobilityWorkChain"
 
 [tool.pylint.format]
 max-line-length = 120

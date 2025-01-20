@@ -1,0 +1,392 @@
+protocol_description: >
+  Protocol that performs a "standard" calculation, defined as:
+  DZVP-MOLOPT-SR basis set for non-metals and TZVP for metals (600Ry CUTOFF) with PBE-D3(BJ) functional,
+  high spin initial magnetization at the common oxidation state,
+  using OT as settings_0 and DIAGONALIZATION+SMEAR as settings_1,
+  running a short 5-steps GEO_OPT, then a 50*0.5fs NVT-MD, and a final CELL_OPT.
+
+# Defining atomic properties
+
+initial_magnetization:
+  H: 0
+  Li: 0 # oxidation state +1
+  Be: 0 # oxidation state +2
+  B: 0
+  C: 0
+  N: 0
+  O: 0
+  F: 0
+  Na: 0 # oxidation state +1
+  Mg: 0 # oxidation state +2
+  Sr: 0
+  Cs: 0
+  Al: 0 # oxidation state +3
+  Ga: 0
+  Si: 0
+  As: 0
+  In: 0
+  P: 0
+  S: 0
+  Cl: 0
+  Br: 0
+  I: 0
+  K: 0 # oxidation state +1
+  Ca: 0 # oxidation state +2
+  Sc: 0 # oxidation state +1
+  Ti: 0 # oxidation state +4
+  V: 3 # oxidation state +2 high spin
+  Cr: 4 # oxidation state +2 high spin
+  Mn: 5 # oxidation state +2 high spin
+  Fe: 0 # oxidation state +2 high spin
+  Co: 3 # oxidation state +2 high spin
+  Ni: 0 # oxidation state +2 high spin
+  Cu: 1 # oxidation state +2 high spin
+  Zn: 0 # oxidation state +2
+  Cd: 0
+  Zr: 0 # oxidation state +4
+  Ag: 0
+  Au: 0
+  Ru: 0
+
+basis_set:
+  H: DZVP-MOLOPT-PBE-GTH-q1
+  He: DZVP-MOLOPT-PBE-GTH-q2
+  Li: TZVP-MOLOPT-PBE-GTH-q3
+  Be: TZVP-MOLOPT-PBE-GTH-q4
+  B: DZVP-MOLOPT-PBE-GTH-q3
+  C: DZVP-MOLOPT-PBE-GTH-q4
+  N: DZVP-MOLOPT-PBE-GTH-q5
+  O: DZVP-MOLOPT-PBE-GTH-q6
+  F: DZVP-MOLOPT-PBE-GTH-q7
+  Ne: DZVP-MOLOPT-PBE-GTH-q8
+  Na: DZVP-MOLOPT-PBE-GTH-q9
+  Mg: DZVP-MOLOPT-PBE-GTH-q2
+  Al: TZVP-MOLOPT-PBE-GTH-q3
+  Si: TZVP-MOLOPT-PBE-GTH-q4
+  P: DZVP-MOLOPT-PBE-GTH-q5
+  S: DZVP-MOLOPT-PBE-GTH-q6
+  Cl: DZVP-MOLOPT-PBE-GTH-q7
+  Ar: DZVP-MOLOPT-PBE-GTH-q8
+  K: TZVP-MOLOPT-PBE-GTH-q9
+  Ca: TZVP-MOLOPT-PBE-GTH-q10
+  Sc: TZVP-MOLOPT-PBE-GTH-q11
+  Ti: TZVP-MOLOPT-PBE-GTH-q12
+  V: TZVP-MOLOPT-PBE-GTH-q13
+  Cr: TZVP-MOLOPT-PBE-GTH-q14
+  Mn: TZVP-MOLOPT-PBE-GTH-q15
+  Fe: TZVP-MOLOPT-PBE-GTH-q16
+  Co: TZVP-MOLOPT-PBE-GTH-q17
+  Ni: TZVP-MOLOPT-PBE-GTH-q18
+  Cu: TZVP-MOLOPT-PBE-GTH-q11
+  Zn: TZVP-MOLOPT-PBE-GTH-q12
+  Ga: TZVP-MOLOPT-PBE-GTH-q13
+  Ge: TZVP-MOLOPT-PBE-GTH-q4
+  As: TZVP-MOLOPT-PBE-GTH-q5
+  Se: TZVP-MOLOPT-PBE-GTH-q6
+  Br: DZVP-MOLOPT-PBE-GTH-q7
+  Kr: DZVP-MOLOPT-PBE-GTH-q8
+  Rb: TZVP-MOLOPT-PBE-GTH-q9
+  Sr: TZVP-MOLOPT-PBE-GTH-q10
+  Y: TZVP-MOLOPT-PBE-GTH-q11
+  Zr: TZVP-MOLOPT-PBE-GTH-q12
+  Nb: TZVP-MOLOPT-PBE-GTH-q13
+  Mo: TZVP-MOLOPT-PBE-GTH-q14
+  Tc: TZVP-MOLOPT-PBE-GTH-q15
+  Ru: TZVP-MOLOPT-PBE-GTH-q16
+  Rh: TZVP-MOLOPT-PBE-GTH-q9
+  Pd: TZVP-MOLOPT-PBE-GTH-q18
+  Ag: TZVP-MOLOPT-PBE-GTH-q11
+  Cd: TZVP-MOLOPT-PBE-GTH-q12
+  In: TZVP-MOLOPT-PBE-GTH-q13
+  Sn: TZVP-MOLOPT-PBE-GTH-q4
+  Sb: TZVP-MOLOPT-PBE-GTH-q5
+  Te: TZVP-MOLOPT-PBE-GTH-q6
+  I: DZVP-MOLOPT-PBE-GTH-q7
+  Xe: DZVP-MOLOPT-PBE-GTH-q8
+  Cs: TZVP-MOLOPT-PBE-GTH-q9
+  Ba: TZVP-MOLOPT-PBE-GTH-q10
+  La: TZVP-MOLOPT-PBE-GTH-q11
+  Ce: TZVP-MOLOPT-PBE-GTH-q12
+  Pr: TZVP-MOLOPT-PBE-GTH-q13
+  Nd: DZVP-MOLOPT-PBE-GTH-q14
+  Pm: TZVP-MOLOPT-PBE-GTH-q15
+  Sm: TZVP-MOLOPT-PBE-GTH-q16
+  Eu: TZVP-MOLOPT-PBE-GTH-q17
+  Gd: TZVP-MOLOPT-SR-GTH-q18
+  Tb: TZVP-MOLOPT-SR-GTH-q19
+  Dy: TZVP-MOLOPT-SR-GTH-q20
+  Ho: TZVP-MOLOPT-SR-GTH-q21
+  Er: TZVP-MOLOPT-SR-GTH-q22
+  Tm: TZVP-MOLOPT-SR-GTH-q23
+  Yb: TZVP-MOLOPT-SR-GTH-q24
+  Lu: TZVP-MOLOPT-SR-GTH-q25
+  Hf: TZVP-MOLOPT-SR-GTH-q12
+  Ta: TZVP-MOLOPT-SR-GTH-q13
+  W: TZVP-MOLOPT-SR-GTH-q14
+  Re: TZVP-MOLOPT-PBE-GTH-q15
+  Os: TZVP-MOLOPT-SR-GTH-q16
+  Ir: TZVP-MOLOPT-SR-GTH-q17
+  Pt: TZVP-MOLOPT-SR-GTH-q18
+  Au: TZVP-MOLOPT-PBE-GTH-q11
+  Hg: TZVP-MOLOPT-SR-GTH-q12
+  Tl: TZVP-MOLOPT-SR-GTH-q13
+  Pb: TZVP-MOLOPT-SR-GTH-q4
+  Bi: TZVP-MOLOPT-SR-GTH-q5
+  Po: TZVP-MOLOPT-SR-GTH-q6
+  At: TZVP-MOLOPT-SR-GTH-q7
+  Rn: TZVP-MOLOPT-SR-GTH-q8
+
+pseudopotential:
+  H: GTH-PBE-q1
+  He: GTH-PBE-q2
+  Li: GTH-PBE-q3
+  Be: GTH-PBE-q4
+  B: GTH-PBE-q3
+  C: GTH-PBE-q4
+  N: GTH-PBE-q5
+  O: GTH-PBE-q6
+  F: GTH-PBE-q7
+  Ne: GTH-PBE-q8
+  Na: GTH-PBE-q9
+  Mg: GTH-PBE-q2
+  Al: GTH-PBE-q3
+  Si: GTH-PBE-q4
+  P: GTH-PBE-q5
+  S: GTH-PBE-q6
+  Cl: GTH-PBE-q7
+  Ar: GTH-PBE-q8
+  K: GTH-PBE-q9
+  Ca: GTH-PBE-q10
+  Sc: GTH-PBE-q11
+  Ti: GTH-PBE-q12
+  V: GTH-PBE-q13
+  Cr: GTH-PBE-q14
+  Mn: GTH-PBE-q15
+  Fe: GTH-PBE-q16
+  Co: GTH-PBE-q17
+  Ni: GTH-PBE-q18
+  Cu: GTH-PBE-q11
+  Zn: GTH-PBE-q12
+  Ga: GTH-PBE-q13
+  Ge: GTH-PBE-q4
+  As: GTH-PBE-q5
+  Se: GTH-PBE-q6
+  Br: GTH-PBE-q7
+  Kr: GTH-PBE-q8
+  Rb: GTH-PBE-q9
+  Sr: GTH-PBE-q10
+  Y: GTH-PBE-q11
+  Zr: GTH-PBE-q12
+  Nb: GTH-PBE-q13
+  Mo: GTH-PBE-q14
+  Tc: GTH-PBE-q15
+  Ru: GTH-PBE-q16
+  Rh: GTH-PBE-q9
+  Pd: GTH-PBE-q18
+  Ag: GTH-PBE-q11
+  Cd: GTH-PBE-q12
+  In: GTH-PBE-q13
+  Sn: GTH-PBE-q4
+  Sb: GTH-PBE-q5
+  Te: GTH-PBE-q6
+  I: GTH-PBE-q7
+  Xe: GTH-PBE-q8
+  Cs: GTH-PBE-q9
+  Ba: GTH-PBE-q10
+  La: GTH-PBE-q11
+  Ce: GTH-PBE-q12
+  Pr: GTH-PBE-q13
+  Nd: GTH-PBE-q14
+  Pm: GTH-PBE-q15
+  Sm: GTH-PBE-q16
+  Eu: GTH-PBE-q17
+  Gd: GTH-PBE-q18
+  Tb: GTH-PBE-q19
+  Dy: GTH-PBE-q20
+  Ho: GTH-PBE-q21
+  Er: GTH-PBE-q22
+  Tm: GTH-PBE-q23
+  Yb: GTH-PBE-q24
+  Lu: GTH-PBE-q25
+  Hf: GTH-PBE-q12
+  Ta: GTH-PBE-q13
+  W: GTH-PBE-q14
+  Re: GTH-PBE-q15
+  Os: GTH-PBE-q16
+  Ir: GTH-PBE-q17
+  Pt: GTH-PBE-q18
+  Au: GTH-PBE-q11
+  Hg: GTH-PBE-q12
+  Tl: GTH-PBE-q13
+  Pb: GTH-PBE-q4
+  Bi: GTH-PBE-q5
+  Po: GTH-PBE-q6
+  At: GTH-PBE-q7
+  Rn: GTH-PBE-q8
+
+# Defining input settings
+bandgap_thr_ev: 0.2 #bandgap threshold minimum under which the OT is not considered as valid
+
+settings_0: # main settings exploiting OT
+  GLOBAL:
+    EXTENDED_FFT_LENGTHS: T
+    PRINT_LEVEL: MEDIUM #default: MEDIUM. Important to have the correct parsing
+  FORCE_EVAL:
+    METHOD: QUICKSTEP
+    STRESS_TENSOR: ANALYTICAL
+    PRINT:
+      STRESS_TENSOR:
+        ADD_LAST: SYMBOLIC
+        FILENAME: tensor
+        EACH:
+          CELL_OPT: 1
+          GEO_OPT: 0
+   
+    DFT:
+      BASIS_SET_FILE_NAME:
+        - BASIS_MOLOPT
+        - BASIS_MOLOPT_UZH
+        - BASIS_ADMM_MOLOPT
+        - BASIS_ADMM
+      POTENTIAL_FILE_NAME:
+        - POTENTIAL_UZH
+      UKS: False
+      CHARGE: 0
+      MULTIPLICITY: 0
+      MGRID:
+        CUTOFF: 700
+        REL_CUTOFF: 70
+        NGRIDS: 5
+      QS:
+        METHOD: GPW
+        EPS_DEFAULT: 1.0E-12
+        EXTRAPOLATION: ASPC
+
+      SCF:
+        MAX_SCF: 50
+        EPS_SCF: 1.0E-7
+        MAX_ITER_LUMO: 5000 # for computing the Band gap
+        OUTER_SCF:
+          MAX_SCF: 50 # not too many: it has 5 GEO_OPT to converge initially
+          EPS_SCF: 0.5E-7 # equal (or smaller for expert use) than SCF/EPS_SCF
+        OT:
+          PRECONDITIONER: FULL_ALL
+          MINIMIZER: CG
+
+        MIXING:
+          METHOD: DIRECT_P_MIXING
+          ALPHA: 0.4
+          BETA: 0.5
+        
+        PRINT:
+          RESTART: 
+            BACKUP_COPIES: 0
+        
+      XC:
+        DENSITY_CUTOFF:     1.0000000000000000E-10
+        GRADIENT_CUTOFF:     1.0000000000000000E-10
+        TAU_CUTOFF:     1.0000000000000000E-10
+        XC_FUNCTIONAL:
+          PBE:
+            PARAMETRIZATION: ORIG
+        VDW_POTENTIAL:
+          POTENTIAL_TYPE: PAIR_POTENTIAL
+          PAIR_POTENTIAL:
+            R_CUTOFF: 1.0000000000000009E+01
+            PARAMETER_FILE_NAME: dftd3.dat
+            TYPE: DFTD3(BJ)
+            REFERENCE_FUNCTIONAL: PBE
+      POISSON:
+        PERIODIC: XYZ
+      PRINT:
+        MO_CUBES:
+          WRITE_CUBE: F
+          ADD_LAST: SYMBOLIC
+          EACH:
+            CELL_OPT: 0
+            GEO_OPT: 0
+          NHOMO: 1 # all eigenvalues are dumped anyway
+          NLUMO: 1 # specified neigenvalues are dupmed
+        MOMENTS:
+          _: "ON"
+
+
+  MOTION:
+    PRINT:
+      TRAJECTORY:
+        FORMAT: DCD_ALIGNED_CELL
+        EACH:
+          CELL_OPT: 1
+          GEO_OPT: 1
+          MD: 1
+      RESTART:
+        BACKUP_COPIES: 0
+        EACH:
+          CELL_OPT: 1
+          GEO_OPT: 1
+          MD: 1
+      RESTART_HISTORY:
+        _: OFF
+      CELL:
+        _: OFF
+      VELOCITIES:
+        _: OFF
+      FORCES:
+        _: OFF
+      STRESS:
+        _: OFF
+
+
+# Defining stage's settings (relative to the &MOTION)
+stage_0:
+  GLOBAL:
+    RUN_TYPE: GEO_OPT
+    ELPA_KERNEL: GENERIC
+  MOTION:
+    GEO_OPT:
+      TYPE: MINIMIZATION #default: MINIMIZATION
+      OPTIMIZER: BFGS #default: BFGS
+      MAX_ITER: 1000 #default: 200
+      MAX_DR: "[bohr] 0.0005" #default: [bohr] 0.0030
+      RMS_DR: "[bohr] 0.0005" #default: [bohr] 0.0015
+      MAX_FORCE: "[bohr^-1*hartree] 0.00010" #default: [bohr^-1*hartree] 0.00045
+      RMS_FORCE: "[bohr^-1*hartree] 0.00010" #default: [bohr^-1*hartree] 0.00030
+      BFGS:
+        TRUST_RADIUS: "[angstrom] 0.20" #default: [angstrom] 0.25
+
+stage_1:
+  GLOBAL:
+    RUN_TYPE: CELL_OPT    
+    ELPA_KERNEL: GENERIC
+  FORCE_EVAL:
+    DFT:
+      PRINT:
+        MO_CUBES:
+          WRITE_CUBE: F
+          ADD_LAST: SYMBOLIC
+          EACH:
+            CELL_OPT: 0
+            GEO_OPT: 0
+            MD: 0
+          NHOMO: 1 # all eigenvalues are dumped anyway
+          NLUMO: 1 # specified neigenvalues are dupmed
+   
+
+  MOTION:
+    CELL_OPT:
+      TYPE: DIRECT_CELL_OPT #default: DIRECT_CELL_OPT
+      EXTERNAL_PRESSURE: "[bar] 0.0"
+      PRESSURE_TOLERANCE: "[bar] 100" #default: 100
+      KEEP_ANGLES: False
+      KEEP_SYMMETRY: False
+      OPTIMIZER: BFGS #default: BFGS
+      MAX_ITER: 1000 #default: 200
+      MAX_DR: "[bohr] 0.0005" #default: [bohr] 0.0030
+      RMS_DR: "[bohr] 0.0005" #default: [bohr] 0.0015
+      MAX_FORCE: "[bohr^-1*hartree] 0.00010" #default: [bohr^-1*hartree] 0.00045
+      RMS_FORCE: "[bohr^-1*hartree] 0.00010" #default: [bohr^-1*hartree] 0.00030
+      BFGS:
+        TRUST_RADIUS: "[angstrom] 0.2"
+
+
+##think of the optimizer for cell opt
