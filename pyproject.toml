@@ -31,7 +31,7 @@ dependencies = [
     "ase<3.20",
     "oximachinerunner~=1.4.0",
     "pymatgen<2021",
-    "phonopy~=2.9",
+    "phonopy~=2.25.0",
     "markupsafe<2.1",
 ]
 
