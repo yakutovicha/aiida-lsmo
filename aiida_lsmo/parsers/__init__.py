@@ -5,6 +5,7 @@ from aiida.common import OutputParsingError, NotExistent
 from aiida.orm import Dict, BandsData
 from aiida_cp2k.parsers import Cp2kBaseParser
 from .parser_functions import parse_cp2k_output_bsse, parse_cp2k_output_advanced
+from .vac_vacuum_parser import VACCalculationParser
 
 
 class Cp2kBsseParser(Cp2kBaseParser):  # pylint: disable=too-few-public-methods
